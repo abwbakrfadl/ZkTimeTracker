@@ -1,8 +1,8 @@
 using System;
 using System.Windows.Forms;
 using DevExpress.LookAndFeel;
-using DevExpress.Skins;
 using DevExpress.UserSkins;
+using DevExpress.Skins;
 using ZKTecoAttendanceSystem.Forms;
 
 namespace ZKTecoAttendanceSystem
@@ -18,20 +18,21 @@ namespace ZKTecoAttendanceSystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            // Initialize DevExpress themes
+            // Initialize DevExpress skins and themes
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("Office 2019 Colorful");
             
-            // Start with the login form
-            var loginForm = new LoginForm();
-            if (loginForm.ShowDialog() == DialogResult.OK)
+            try
             {
+                // Start the application with the main form
                 Application.Run(new MainForm());
             }
-            else
+            catch (Exception ex)
             {
-                Application.Exit();
+                // Show error message for any unhandled exceptions
+                MessageBox.Show($"An unhandled error occurred: {ex.Message}\n\nThe application will now close.",
+                    "Critical Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
