@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{074480C2-9D95-4996-AAFF-6F08F2208D08}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Fingerprint1</RootNamespace>
+    <AssemblyName>Fingerprint1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>fingerprint-scanner1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Charts.Core.22.2.3\lib\net452\DevExpress.Charts.v22.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.CodeParser.22.2.3\lib\net452\DevExpress.CodeParser.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Data.Desktop.22.2.3\lib\net452\DevExpress.Data.Desktop.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Data.22.2.3\lib\net452\DevExpress.Data.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.DataAccess.22.2.3\lib\net452\DevExpress.DataAccess.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v22.2.UI, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.DataAccess.UI.22.2.3\lib\net452\DevExpress.DataAccess.v22.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataVisualization.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.DataVisualization.Core.22.2.3\lib\net452\DevExpress.DataVisualization.v22.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Diagram.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Diagram.Core.22.2.3\lib\net452\DevExpress.Diagram.v22.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Drawing.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Drawing.22.2.3\lib\net452\DevExpress.Drawing.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Drawing.v22.2.Skia, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Images.22.2.3\lib\net452\DevExpress.Images.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Office.Core.22.2.3\lib\net452\DevExpress.Office.v22.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Pdf.Core.22.2.3\lib\net452\DevExpress.Pdf.v22.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v22.2.Drawing, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Pdf.Drawing.22.2.3\lib\net452\DevExpress.Pdf.v22.2.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.PivotGrid.Core.22.2.3\lib\net452\DevExpress.PivotGrid.v22.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Printing.Core.22.2.3\lib\net452\DevExpress.Printing.v22.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.RichEdit.Core.22.2.3\lib\net452\DevExpress.RichEdit.v22.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v22.2.Export, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.RichEdit.Export.22.2.3\lib\net452\DevExpress.RichEdit.v22.2.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Sparkline.Core.22.2.3\lib\net452\DevExpress.Sparkline.v22.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Utils.22.2.3\lib\net452\DevExpress.Utils.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v22.2.UI, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Utils.UI.22.2.3\lib\net452\DevExpress.Utils.v22.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Xpo.22.2.3\lib\net452\DevExpress.Xpo.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Navigation.22.2.3\lib\net452\DevExpress.XtraBars.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v22.2.Design, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Navigation.22.2.3\lib\net452\Design\WinForms\Server\DevExpress.XtraBars.v22.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Charts.22.2.3\lib\net452\DevExpress.XtraCharts.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v22.2.Extensions, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Charts.22.2.3\lib\net452\DevExpress.XtraCharts.v22.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v22.2.UI, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Charts.22.2.3\lib\net452\DevExpress.XtraCharts.v22.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v22.2.Web, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v22.2.Wizard, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Charts.22.2.3\lib\net452\DevExpress.XtraCharts.v22.2.Wizard.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraDiagram.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Diagram.22.2.3\lib\net452\DevExpress.XtraDiagram.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraDiagram.v22.2.Design, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Diagram.22.2.3\lib\net452\Design\WinForms\Server\DevExpress.XtraDiagram.v22.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Navigation.22.2.3\lib\net452\DevExpress.XtraEditors.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v22.2.Design, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Navigation.22.2.3\lib\net452\Design\WinForms\Server\DevExpress.XtraEditors.v22.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Grid.22.2.3\lib\net452\DevExpress.XtraGrid.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v22.2.Design, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Grid.22.2.3\lib\net452\Design\WinForms\Server\DevExpress.XtraGrid.v22.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Navigation.22.2.3\lib\net452\DevExpress.XtraLayout.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v22.2.Design, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Navigation.22.2.3\lib\net452\Design\WinForms\Server\DevExpress.XtraLayout.v22.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraMap.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.22.2.3\lib\net452\DevExpress.XtraNavBar.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v22.2.Design, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.22.2.3\lib\net452\Design\WinForms\Server\DevExpress.XtraNavBar.v22.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPdfViewer.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.PivotGrid.22.2.3\lib\net452\DevExpress.XtraPivotGrid.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v22.2.Design, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.PivotGrid.22.2.3\lib\net452\Design\WinForms\Server\DevExpress.XtraPivotGrid.v22.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Printing.22.2.3\lib\net452\DevExpress.XtraPrinting.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v22.2.Design, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.Printing.22.2.3\lib\net452\Design\WinForms\Server\DevExpress.XtraPrinting.v22.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.RichEdit.22.2.3\lib\net452\DevExpress.XtraRichEdit.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v22.2.Design, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.RichEdit.22.2.3\lib\net452\Design\WinForms\Server\DevExpress.XtraRichEdit.v22.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.TreeList.22.2.3\lib\net452\DevExpress.XtraTreeList.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v22.2.Design, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.TreeList.22.2.3\lib\net452\Design\WinForms\Server\DevExpress.XtraTreeList.v22.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.VerticalGrid.22.2.3\lib\net452\DevExpress.XtraVerticalGrid.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v22.2.Design, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.VerticalGrid.22.2.3\lib\net452\Design\WinForms\Server\DevExpress.XtraVerticalGrid.v22.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraWizard.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.22.2.3\lib\net452\DevExpress.XtraWizard.v22.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraWizard.v22.2.Design, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Win.22.2.3\lib\net452\Design\WinForms\Server\DevExpress.XtraWizard.v22.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\..\Desktop\WhatsApp\Guna UI\Guna.UI.WinForms_v1.0.0.9\.net 2.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\..\Desktop\WhatsApp\Guna UI\Guna.UI2.WinForms_v2.0.0.6\.net 2.0\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.zkemkeeper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>bin\Debug\Interop.zkemkeeper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DailyAttendanceReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DailyAttendanceReport.rpt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm1.Designer.cs">
+      <DependentUpon>MainForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SideMenuControl.cs" />
+    <Compile Include="SideMenuControl.Designer.cs">
+      <DependentUpon>SideMenuControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\AddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\AddEmployee.Designer.cs">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\AttendanceReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\AttendanceReportForm.Designer.cs">
+      <DependentUpon>AttendanceReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\ConFingerprintApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\ConFingerprintApp.Designer.cs">
+      <DependentUpon>ConFingerprintApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\ExcelPackage.cs" />
+    <Compile Include="view\ManualAttendanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\ManualAttendanceForm.Designer.cs">
+      <DependentUpon>ManualAttendanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SalaryManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\SalaryManagementForm.Designer.cs">
+      <DependentUpon>SalaryManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\ScheduleWorkingDaysForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\ScheduleWorkingDaysForm.Designer.cs">
+      <DependentUpon>ScheduleWorkingDaysForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SetGroupTZApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\SetGroupTZApp.Designer.cs">
+      <DependentUpon>SetGroupTZApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SqlHelper.cs" />
+    <Compile Include="view\AppSetting.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="view\AddEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\AddEmployeeForm.Designer.cs">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\AttendanceApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\AttendanceApp.Designer.cs">
+      <DependentUpon>AttendanceApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\AddZKTeco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\AddZKTeco.Designer.cs">
+      <DependentUpon>AddZKTeco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\AttendanceReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\AttendanceReport.Designer.cs">
+      <DependentUpon>AttendanceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\AttendanceStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\AttendanceStatusForm.Designer.cs">
+      <DependentUpon>AttendanceStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\connm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\connm.Designer.cs">
+      <DependentUpon>connm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\DailyAttendanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\DailyAttendanceForm.Designer.cs">
+      <DependentUpon>DailyAttendanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\DailyReportForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\DailyReportForm1.Designer.cs">
+      <DependentUpon>DailyReportForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\DailyReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\DailyReportForm.Designer.cs">
+      <DependentUpon>DailyReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\DatabaseHelper.cs" />
+    <Compile Include="view\DeductionReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\DeductionReportForm.Designer.cs">
+      <DependentUpon>DeductionReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\DisciplinedAttendanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\DisciplinedAttendanceForm.Designer.cs">
+      <DependentUpon>DisciplinedAttendanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\DiscountManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\DiscountManagement.Designer.cs">
+      <DependentUpon>DiscountManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\EmployeeAttendanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\EmployeeAttendanceForm.Designer.cs">
+      <DependentUpon>EmployeeAttendanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\EmployeeSchedulesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\EmployeeSchedulesForm.Designer.cs">
+      <DependentUpon>EmployeeSchedulesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\1SqlHelper.cs" />
+    <Compile Include="view\HolidaysForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\HolidaysForm.Designer.cs">
+      <DependentUpon>HolidaysForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\LeavesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\LeavesForm.Designer.cs">
+      <DependentUpon>LeavesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\MonthlyReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\MonthlyReportForm.Designer.cs">
+      <DependentUpon>MonthlyReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\MonthlyReportForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\MonthlyReportForm1.Designer.cs">
+      <DependentUpon>MonthlyReportForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PermissionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PermissionsForm.Designer.cs">
+      <DependentUpon>PermissionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SchedulesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\SchedulesForm.Designer.cs">
+      <DependentUpon>SchedulesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\ShiftsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\ShiftsForm.Designer.cs">
+      <DependentUpon>ShiftsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\StatisticalReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\StatisticalReportForm.Designer.cs">
+      <DependentUpon>StatisticalReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\BonusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\BonusForm.Designer.cs">
+      <DependentUpon>BonusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\WorkingDaysForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\WorkingDaysForm.Designer.cs">
+      <DependentUpon>WorkingDaysForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraForm1.Designer.cs">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </Compile>
+    <Content Include="DailyAttendanceReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DailyAttendanceReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm1.resx">
+      <DependentUpon>MainForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="view\AddEmployeeForm.resx">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\AttendanceApp.resx">
+      <DependentUpon>AttendanceApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\AddZKTeco.resx">
+      <DependentUpon>AddZKTeco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\AttendanceReport.resx">
+      <DependentUpon>AttendanceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\AttendanceStatusForm.resx">
+      <DependentUpon>AttendanceStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\BonusForm.resx">
+      <DependentUpon>BonusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\ConFingerprintApp.resx">
+      <DependentUpon>ConFingerprintApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\connm.resx">
+      <DependentUpon>connm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\DailyAttendanceForm.resx">
+      <DependentUpon>DailyAttendanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\DailyReportForm.resx">
+      <DependentUpon>DailyReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\DailyReportForm1.resx">
+      <DependentUpon>DailyReportForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\DeductionReportForm.resx">
+      <DependentUpon>DeductionReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\DisciplinedAttendanceForm.resx">
+      <DependentUpon>DisciplinedAttendanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\DiscountManagement.resx">
+      <DependentUpon>DiscountManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\EmployeeAttendanceForm.resx">
+      <DependentUpon>EmployeeAttendanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\EmployeeSchedulesForm.resx">
+      <DependentUpon>EmployeeSchedulesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\HolidaysForm.resx">
+      <DependentUpon>HolidaysForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\LeavesForm.resx">
+      <DependentUpon>LeavesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\ManualAttendanceForm.resx">
+      <DependentUpon>ManualAttendanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\MonthlyReportForm.resx">
+      <DependentUpon>MonthlyReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\MonthlyReportForm1.resx">
+      <DependentUpon>MonthlyReportForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PermissionsForm.resx">
+      <DependentUpon>PermissionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SalaryManagementForm.resx">
+      <DependentUpon>SalaryManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SchedulesForm.resx">
+      <DependentUpon>SchedulesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\ScheduleWorkingDaysForm.resx">
+      <DependentUpon>ScheduleWorkingDaysForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SetGroupTZApp.resx">
+      <DependentUpon>SetGroupTZApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\ShiftsForm.resx">
+      <DependentUpon>ShiftsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\StatisticalReportForm.resx">
+      <DependentUpon>StatisticalReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\WorkingDaysForm.resx">
+      <DependentUpon>WorkingDaysForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraForm1.resx">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="zkemkeeper">
+      <Guid>{FE9DED34-E159-408E-8490-B720A5E632C7}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fingerprint-scanner1.ico" />
+    <Content Include="Resources\help_icon.png" />
+    <Content Include="Resources\home_icon.png" />
+    <Content Include="Resources\profile_icon.png" />
+    <Content Include="Resources\reports_icon.png" />
+    <Content Include="Resources\settings_icon.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\DevExpress.Win.CodeAnalysis.22.2.3\analyzers\dotnet\cs\DevExpress.Win.CodeAnalysis.CodeFixes.v22.2.dll" />
+    <Analyzer Include="..\packages\DevExpress.Win.CodeAnalysis.22.2.3\analyzers\dotnet\cs\DevExpress.Win.CodeAnalysis.v22.2.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
