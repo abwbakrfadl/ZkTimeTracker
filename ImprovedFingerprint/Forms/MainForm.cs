@@ -350,6 +350,22 @@ namespace ImprovedFingerprint.Forms
             }
         }
 
+        private void btnBackupRestore_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                using (var backupForm = new BackupRestoreForm())
+                {
+                    backupForm.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show($"خطأ في فتح شاشة النسخ الاحتياطية: {ex.Message}", "خطأ",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnAbout_ItemClick(object sender, ItemClickEventArgs e)
         {
             var aboutMessage = @"نظام إدارة البصمة - ZKTeco U350

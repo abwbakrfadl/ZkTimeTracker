@@ -31,6 +31,7 @@ namespace ImprovedFingerprint.Forms
             this.btnSyncData = new DevExpress.XtraBars.BarButtonItem();
             this.btnDeviceInfo = new DevExpress.XtraBars.BarButtonItem();
             this.btnDatabaseSettings = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBackupRestore = new DevExpress.XtraBars.BarButtonItem();
             this.btnAbout = new DevExpress.XtraBars.BarButtonItem();
             this.btnExit = new DevExpress.XtraBars.BarButtonItem();
             
@@ -66,6 +67,7 @@ namespace ImprovedFingerprint.Forms
                 this.btnSyncData,
                 this.btnDeviceInfo,
                 this.btnDatabaseSettings,
+                this.btnBackupRestore,
                 this.btnAbout,
                 this.btnExit});
                 
@@ -176,6 +178,13 @@ namespace ImprovedFingerprint.Forms
             this.btnDatabaseSettings.Name = "btnDatabaseSettings";
             this.btnDatabaseSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDatabaseSettings_ItemClick);
             
+            this.btnBackupRestore.Caption = "النسخ الاحتياطية";
+            this.btnBackupRestore.Id = 8;
+            this.btnBackupRestore.ImageOptions.SvgImage = GetBackupIcon();
+            this.btnBackupRestore.LargeImageOptions.SvgImage = GetBackupIcon();
+            this.btnBackupRestore.Name = "btnBackupRestore";
+            this.btnBackupRestore.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBackupRestore_ItemClick);
+            
             // Application Buttons
             this.btnAbout.Caption = "حول البرنامج";
             this.btnAbout.Id = 9;
@@ -235,6 +244,7 @@ namespace ImprovedFingerprint.Forms
             this.ribbonPageSettings.Text = "الإعدادات";
             
             this.ribbonPageGroupSystem.ItemLinks.Add(this.btnDatabaseSettings);
+            this.ribbonPageGroupSystem.ItemLinks.Add(this.btnBackupRestore);
             this.ribbonPageGroupSystem.Name = "ribbonPageGroupSystem";
             this.ribbonPageGroupSystem.Text = "النظام";
             
@@ -315,6 +325,11 @@ namespace ImprovedFingerprint.Forms
         private DevExpress.Utils.Svg.SvgImage GetAboutIcon()
         {
             return DevExpress.Utils.Svg.SvgImage.FromResources("about.svg", typeof(MainForm).Assembly);
+        }
+        
+        private DevExpress.Utils.Svg.SvgImage GetBackupIcon()
+        {
+            return DevExpress.Utils.Svg.SvgImage.FromResources("backup.svg", typeof(MainForm).Assembly);
         }
         
         private DevExpress.Utils.Svg.SvgImage GetExitIcon()
