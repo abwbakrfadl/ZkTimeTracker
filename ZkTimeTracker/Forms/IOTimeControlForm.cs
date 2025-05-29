@@ -29,16 +29,25 @@ namespace ZKTecoAttendanceSystem.Forms
                     return;
                 }
 
-                // تحديد الأوقات الافتراضية حسب طلبك
-                // الدخول من 6:00 إلى 10:59
-                timeEditCheckInStart.Time = DateTime.Today.AddHours(6);  // 6:00 صباحاً
-                timeEditCheckInEnd.Time = DateTime.Today.AddHours(10).AddMinutes(59); // 10:59 صباحاً
+                // الفترة الصباحية
+                timeEditMorningInStart.Time = DateTime.Today.AddHours(6);     // 6:00 صباحاً
+                timeEditMorningInEnd.Time = DateTime.Today.AddHours(10).AddMinutes(59); // 10:59 صباحاً
+                timeEditMorningOutStart.Time = DateTime.Today.AddHours(11);   // 11:00 صباحاً
+                timeEditMorningOutEnd.Time = DateTime.Today.AddHours(13);     // 13:00 ظهراً
                 
-                // الخروج من 11:00 إلى 13:00
-                timeEditCheckOutStart.Time = DateTime.Today.AddHours(11); // 11:00 صباحاً
-                timeEditCheckOutEnd.Time = DateTime.Today.AddHours(13);   // 13:00 ظهراً
+                // الفترة المسائية
+                timeEditEveningInStart.Time = DateTime.Today.AddHours(14);    // 14:00 ظهراً
+                timeEditEveningInEnd.Time = DateTime.Today.AddHours(18).AddMinutes(59); // 18:59 مساءً
+                timeEditEveningOutStart.Time = DateTime.Today.AddHours(19);   // 19:00 مساءً
+                timeEditEveningOutEnd.Time = DateTime.Today.AddHours(21);     // 21:00 ليلاً
+                
+                // الفترة الليلية
+                timeEditNightInStart.Time = DateTime.Today.AddHours(22);      // 22:00 ليلاً
+                timeEditNightInEnd.Time = DateTime.Today.AddHours(2).AddMinutes(59); // 02:59 فجراً
+                timeEditNightOutStart.Time = DateTime.Today.AddHours(3);      // 03:00 فجراً
+                timeEditNightOutEnd.Time = DateTime.Today.AddHours(5);        // 05:00 فجراً
 
-                lblStatus.Text = "تم تحميل الإعدادات الافتراضية";
+                lblStatus.Text = "تم تحميل الإعدادات الافتراضية للفترات الثلاث";
             }
             catch (Exception ex)
             {
@@ -98,28 +107,78 @@ namespace ZKTecoAttendanceSystem.Forms
 
         private bool ValidateTimeSettings()
         {
-            // التحقق من أن وقت بداية الدخول أقل من وقت نهاية الدخول
-            if (timeEditCheckInStart.Time >= timeEditCheckInEnd.Time)
+            // التحقق من الفترة الصباحية
+            if (timeEditMorningInStart.Time >= timeEditMorningInEnd.Time)
             {
-                XtraMessageBox.Show("وقت بداية الدخول يجب أن يكون أقل من وقت نهاية الدخول", 
+                XtraMessageBox.Show("الفترة الصباحية: وقت بداية الدخول يجب أن يكون أقل من وقت نهاية الدخول", 
                     "خطأ في الإعدادات", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            // التحقق من أن وقت بداية الخروج أقل من وقت نهاية الخروج
-            if (timeEditCheckOutStart.Time >= timeEditCheckOutEnd.Time)
+            if (timeEditMorningOutStart.Time >= timeEditMorningOutEnd.Time)
             {
-                XtraMessageBox.Show("وقت بداية الخروج يجب أن يكون أقل من وقت نهاية الخروج", 
+                XtraMessageBox.Show("الفترة الصباحية: وقت بداية الخروج يجب أن يكون أقل من وقت نهاية الخروج", 
                     "خطأ في الإعدادات", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            // التحقق من عدم تداخل أوقات الدخول والخروج
-            if (timeEditCheckInEnd.Time > timeEditCheckOutStart.Time)
+            if (timeEditMorningInEnd.Time > timeEditMorningOutStart.Time)
             {
-                XtraMessageBox.Show("يجب أن ينتهي وقت الدخول قبل بداية وقت الخروج", 
+                XtraMessageBox.Show("الفترة الصباحية: يجب أن ينتهي وقت الدخول قبل بداية وقت الخروج", 
                     "خطأ في الإعدادات", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
+            }
+
+            // التحقق من الفترة المسائية
+            if (timeEditEveningInStart.Time >= timeEditEveningInEnd.Time)
+            {
+                XtraMessageBox.Show("الفترة المسائية: وقت بداية الدخول يجب أن يكون أقل من وقت نهاية الدخول", 
+                    "خطأ في الإعدادات", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (timeEditEveningOutStart.Time >= timeEditEveningOutEnd.Time)
+            {
+                XtraMessageBox.Show("الفترة المسائية: وقت بداية الخروج يجب أن يكون أقل من وقت نهاية الخروج", 
+                    "خطأ في الإعدادات", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (timeEditEveningInEnd.Time > timeEditEveningOutStart.Time)
+            {
+                XtraMessageBox.Show("الفترة المسائية: يجب أن ينتهي وقت الدخول قبل بداية وقت الخروج", 
+                    "خطأ في الإعدادات", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // التحقق من الفترة الليلية
+            if (timeEditNightInStart.Time >= timeEditNightInEnd.Time)
+            {
+                // للفترة الليلية قد تمتد للاليوم التالي، لذا نحتاج فحص خاص
+                if (timeEditNightInStart.Hour >= 22 && timeEditNightInEnd.Hour <= 6)
+                {
+                    // هذا طبيعي للفترة الليلية التي تمتد ليوم جديد
+                }
+                else
+                {
+                    XtraMessageBox.Show("الفترة الليلية: وقت بداية الدخول يجب أن يكون أقل من وقت نهاية الدخول", 
+                        "خطأ في الإعدادات", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+
+            if (timeEditNightOutStart.Time >= timeEditNightOutEnd.Time)
+            {
+                if (timeEditNightOutStart.Hour >= 22 && timeEditNightOutEnd.Hour <= 6)
+                {
+                    // هذا طبيعي للفترة الليلية
+                }
+                else
+                {
+                    XtraMessageBox.Show("الفترة الليلية: وقت بداية الخروج يجب أن يكون أقل من وقت نهاية الخروج", 
+                        "خطأ في الإعدادات", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
             }
 
             return true;
@@ -136,18 +195,37 @@ namespace ZKTecoAttendanceSystem.Forms
                     return false;
                 }
 
-                // إعداد أوقات الدخول والخروج في الجهاز
                 // تحويل الأوقات إلى تنسيق الجهاز
-                TimeSpan checkInStart = timeEditCheckInStart.Time.TimeOfDay;
-                TimeSpan checkInEnd = timeEditCheckInEnd.Time.TimeOfDay;
-                TimeSpan checkOutStart = timeEditCheckOutStart.Time.TimeOfDay;
-                TimeSpan checkOutEnd = timeEditCheckOutEnd.Time.TimeOfDay;
+                // الفترة الصباحية
+                TimeSpan morningInStart = timeEditMorningInStart.Time.TimeOfDay;
+                TimeSpan morningInEnd = timeEditMorningInEnd.Time.TimeOfDay;
+                TimeSpan morningOutStart = timeEditMorningOutStart.Time.TimeOfDay;
+                TimeSpan morningOutEnd = timeEditMorningOutEnd.Time.TimeOfDay;
 
-                // ضبط فترة الدخول (IN)
-                bool success1 = SetTimeZone(zkemKeeper, 1, checkInStart, checkInEnd, 0); 
+                // الفترة المسائية
+                TimeSpan eveningInStart = timeEditEveningInStart.Time.TimeOfDay;
+                TimeSpan eveningInEnd = timeEditEveningInEnd.Time.TimeOfDay;
+                TimeSpan eveningOutStart = timeEditEveningOutStart.Time.TimeOfDay;
+                TimeSpan eveningOutEnd = timeEditEveningOutEnd.Time.TimeOfDay;
 
-                // ضبط فترة الخروج (OUT)  
-                bool success2 = SetTimeZone(zkemKeeper, 2, checkOutStart, checkOutEnd, 1); 
+                // الفترة الليلية
+                TimeSpan nightInStart = timeEditNightInStart.Time.TimeOfDay;
+                TimeSpan nightInEnd = timeEditNightInEnd.Time.TimeOfDay;
+                TimeSpan nightOutStart = timeEditNightOutStart.Time.TimeOfDay;
+                TimeSpan nightOutEnd = timeEditNightOutEnd.Time.TimeOfDay;
+
+                // ضبط المناطق الزمنية في الجهاز
+                // الفترة الصباحية
+                bool success1 = SetTimeZone(zkemKeeper, 1, morningInStart, morningInEnd, 0);    // دخول صباحي
+                bool success2 = SetTimeZone(zkemKeeper, 2, morningOutStart, morningOutEnd, 1);  // خروج صباحي
+
+                // الفترة المسائية
+                bool success3 = SetTimeZone(zkemKeeper, 3, eveningInStart, eveningInEnd, 0);    // دخول مسائي
+                bool success4 = SetTimeZone(zkemKeeper, 4, eveningOutStart, eveningOutEnd, 1);  // خروج مسائي
+
+                // الفترة الليلية
+                bool success5 = SetTimeZone(zkemKeeper, 5, nightInStart, nightInEnd, 0);        // دخول ليلي
+                bool success6 = SetTimeZone(zkemKeeper, 6, nightOutStart, nightOutEnd, 1);      // خروج ليلي
 
                 // حفظ الإعدادات في الجهاز
                 bool saveSuccess = (bool)zkemKeeper.GetType().InvokeMember(
@@ -157,7 +235,7 @@ namespace ZKTecoAttendanceSystem.Forms
                     zkemKeeper,
                     new object[] { 1 });
 
-                return success1 && success2 && saveSuccess;
+                return success1 && success2 && success3 && success4 && success5 && success6 && saveSuccess;
             }
             catch (Exception ex)
             {
@@ -231,24 +309,26 @@ namespace ZKTecoAttendanceSystem.Forms
                 }
 
                 // عرض الإعدادات الحالية للمراجعة
-                string settings = $@"إعدادات أوقات الدخول والخروج:
+                string settings = $@"إعدادات أوقات الدخول والخروج للفترات الثلاث:
 
-فترة الدخول (IN):
-من الساعة: {timeEditCheckInStart.Time.ToString("HH:mm")}
-إلى الساعة: {timeEditCheckInEnd.Time.ToString("HH:mm")}
+🌅 الفترة الصباحية:
+• دخول: من {timeEditMorningInStart.Time.ToString("HH:mm")} إلى {timeEditMorningInEnd.Time.ToString("HH:mm")}
+• خروج: من {timeEditMorningOutStart.Time.ToString("HH:mm")} إلى {timeEditMorningOutEnd.Time.ToString("HH:mm")}
 
-فترة الخروج (OUT):
-من الساعة: {timeEditCheckOutStart.Time.ToString("HH:mm")}
-إلى الساعة: {timeEditCheckOutEnd.Time.ToString("HH:mm")}
+🌆 الفترة المسائية:
+• دخول: من {timeEditEveningInStart.Time.ToString("HH:mm")} إلى {timeEditEveningInEnd.Time.ToString("HH:mm")}
+• خروج: من {timeEditEveningOutStart.Time.ToString("HH:mm")} إلى {timeEditEveningOutEnd.Time.ToString("HH:mm")}
 
-هذا يعني أن:
-- البصمات المسجلة من {timeEditCheckInStart.Time.ToString("HH:mm")} إلى {timeEditCheckInEnd.Time.ToString("HH:mm")} ستعتبر دخول
-- البصمات المسجلة من {timeEditCheckOutStart.Time.ToString("HH:mm")} إلى {timeEditCheckOutEnd.Time.ToString("HH:mm")} ستعتبر خروج";
+🌙 الفترة الليلية:
+• دخول: من {timeEditNightInStart.Time.ToString("HH:mm")} إلى {timeEditNightInEnd.Time.ToString("HH:mm")}
+• خروج: من {timeEditNightOutStart.Time.ToString("HH:mm")} إلى {timeEditNightOutEnd.Time.ToString("HH:mm")}
 
-                XtraMessageBox.Show(settings, "مراجعة الإعدادات", 
+سيتم تطبيق هذه الإعدادات على جهاز البصمة ليميز تلقائياً بين أوقات الدخول والخروج في كل فترة.";
+
+                XtraMessageBox.Show(settings, "مراجعة إعدادات الفترات الثلاث", 
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
-                lblStatus.Text = "تم اختبار الإعدادات بنجاح";
+                lblStatus.Text = "تم اختبار إعدادات الفترات الثلاث بنجاح";
             }
             catch (Exception ex)
             {
