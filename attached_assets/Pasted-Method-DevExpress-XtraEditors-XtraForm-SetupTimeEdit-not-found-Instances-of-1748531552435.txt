@@ -1,0 +1,105 @@
+Method 'DevExpress.XtraEditors.XtraForm.SetupTimeEdit' not found.    
+ 
+  
+ 
+  
+ 
+Instances of this error (12)  
+ 
+1.   Hide Call Stack 
+ 
+at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+at Microsoft.VisualStudio.Shell.Design.VsTargetFrameworkType.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParameters)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeExpression(IDesignerSerializationManager manager, String name, CodeExpression expression)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement(IDesignerSerializationManager manager, CodeStatement statement)  
+ 
+2.   Show Call Stack  
+ 
+at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+at Microsoft.VisualStudio.Shell.Design.VsTargetFrameworkType.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParameters)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeExpression(IDesignerSerializationManager manager, String name, CodeExpression expression)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement(IDesignerSerializationManager manager, CodeStatement statement)  
+ 
+3.   Show Call Stack  
+ 
+at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+at Microsoft.VisualStudio.Shell.Design.VsTargetFrameworkType.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParameters)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeExpression(IDesignerSerializationManager manager, String name, CodeExpression expression)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement(IDesignerSerializationManager manager, CodeStatement statement)  
+ 
+4.   Show Call Stack  
+ 
+at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+at Microsoft.VisualStudio.Shell.Design.VsTargetFrameworkType.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParameters)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeExpression(IDesignerSerializationManager manager, String name, CodeExpression expression)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement(IDesignerSerializationManager manager, CodeStatement statement)  
+ 
+5.   Show Call Stack  
+ 
+at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+at Microsoft.VisualStudio.Shell.Design.VsTargetFrameworkType.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParameters)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeExpression(IDesignerSerializationManager manager, String name, CodeExpression expression)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement(IDesignerSerializationManager manager, CodeStatement statement)  
+ 
+6.   Show Call Stack  
+ 
+at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+at Microsoft.VisualStudio.Shell.Design.VsTargetFrameworkType.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParameters)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeExpression(IDesignerSerializationManager manager, String name, CodeExpression expression)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement(IDesignerSerializationManager manager, CodeStatement statement)  
+ 
+7.   Show Call Stack  
+ 
+at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+at Microsoft.VisualStudio.Shell.Design.VsTargetFrameworkType.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParameters)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeExpression(IDesignerSerializationManager manager, String name, CodeExpression expression)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement(IDesignerSerializationManager manager, CodeStatement statement)  
+ 
+8.   Show Call Stack  
+ 
+at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+at Microsoft.VisualStudio.Shell.Design.VsTargetFrameworkType.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParameters)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeExpression(IDesignerSerializationManager manager, String name, CodeExpression expression)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement(IDesignerSerializationManager manager, CodeStatement statement)  
+ 
+9.   Show Call Stack  
+ 
+at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+at Microsoft.VisualStudio.Shell.Design.VsTargetFrameworkType.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParameters)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeExpression(IDesignerSerializationManager manager, String name, CodeExpression expression)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement(IDesignerSerializationManager manager, CodeStatement statement)  
+ 
+10.   Show Call Stack  
+ 
+at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+at Microsoft.VisualStudio.Shell.Design.VsTargetFrameworkType.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParameters)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeExpression(IDesignerSerializationManager manager, String name, CodeExpression expression)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement(IDesignerSerializationManager manager, CodeStatement statement)  
+ 
+11.   Show Call Stack  
+ 
+at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+at Microsoft.VisualStudio.Shell.Design.VsTargetFrameworkType.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParameters)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeExpression(IDesignerSerializationManager manager, String name, CodeExpression expression)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement(IDesignerSerializationManager manager, CodeStatement statement)  
+ 
+12.   Show Call Stack  
+ 
+at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+at Microsoft.VisualStudio.Shell.Design.VsTargetFrameworkType.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParameters)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeExpression(IDesignerSerializationManager manager, String name, CodeExpression expression)
+at System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement(IDesignerSerializationManager manager, CodeStatement statement)  
+
+ 
+Help with this error  
+ 
+MSDN Help   
+ 
+
+ 
+Forum posts about this error  
+ 
+Search the MSDN Forums for posts related to this error   
+ 
+ 
+ 
